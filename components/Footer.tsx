@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function Footer(){return <footer className="footer"><div className="container"><strong>ToolBox</strong><div className="footerlinks"><Link href="/tools">Tools</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms">Terms</Link></div><p>Free online tools designed to be fast, useful and privacy-conscious. © {new Date().getFullYear()} ToolBox.</p></div></footer>}

@@ -1,0 +1,2 @@
+import {site} from '@/lib/site';
+export default function ToolSchema({name,description,url}:{name:string;description:string;url:string}){const data={"@context":"https://schema.org","@type":"WebApplication",name,description,url,applicationCategory:"UtilitiesApplication",operatingSystem:"Web",isAccessibleForFree:true,publisher:{"@type":"Organization",name:site.name,url:site.url}};return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(data)}}/>}

@@ -1,0 +1,4 @@
+import Link from 'next/link'; import {tools} from '@/lib/tools'; import {notFound} from 'next/navigation';
+const map:Record<string,string>={'image-tools':'Image Tools','pdf-tools':'PDF Tools','text-tools':'Text Tools','developer-tools':'Developer Tools','utility-tools':'Utility Tools'};
+export function generateStaticParams(){return Object.keys(map).map(slug=>({slug}))}
+export default async function Category({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const name=map[slug];if(!name)notFound();const list=tools.filter(t=>t.category===name);return <div className="container section"><h1>{name}</h1><p className="sectionlead">Useful free tools in the {name.toLowerCase()} category.</p><div className="grid">{list.map(t=><Link className="card" href={`/tools/${t.slug}`} key={t.slug}><div className="icon">{t.icon}</div><h3>{t.name}</h3><p>{t.description}</p></Link>)}</div></div>}
